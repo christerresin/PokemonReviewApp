@@ -31,6 +31,7 @@
                     <div>
                         <small>@club.ClubCategory</small>
                     </div>
+                    <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="detail" asp-route-id="@club.Id">Details</a>
                     @*@if (isAuthenticated && User.IsInRole("admin"))
                     {
                         <div>
