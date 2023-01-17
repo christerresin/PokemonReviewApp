@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Race>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@foreach (var race in Model)
+{
+    <li class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+            <a type="button">
+                @if (race.Image != null)
+                {
+                    <img class="card-img-top" src="@race.Image" alt="Card image cap">
+                }
+                else
+                {
+                    <img class="card-img-top" src="/img/rungroopclub.png" alt="Card image cap">
+                }
+
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">@race.Title</h4>
+                <p class="card-text">@race.Description</p>
+                @*<p class="card-text">@club.Address.City, @club.Address.State</p>*@
+            </div>
+            <div class="card-footer card-footer-borderless d-flex justify-content-between">
+
+                @*@if (isAuthenticated && User.IsInRole("admin"))
+            {
+            <div>
+            <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Club" asp-action="Edit" asp-route-id="@club.Id">
+            Edit
+            </a>
+            <a type="button" class="btn btn-sm btn-outline-danger" asp-controller="Club" asp-action="Delete" asp-route-id="@club.Id">
+            Delete
+            </a>
+            </div>
+            }*@
+            </div>
+        </div>
+    </li>
+}
