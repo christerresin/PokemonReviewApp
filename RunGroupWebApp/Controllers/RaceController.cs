@@ -21,7 +21,7 @@ namespace RunGroupWebApp.Controllers
 
         public IActionResult Detail(int id)
         {
-            Race race = _context.Races.FirstOrDefault(race => race.Id == id);
+            Race race = _context.Races.Include(a => a.Address).FirstOrDefault(race => race.Id == id);
             return View(race);
         }
     }
