@@ -48,7 +48,8 @@ namespace RunGroupWebApp.Repositories
 
         public bool Update(Race race)
         {
-            throw new NotImplementedException();
+            _context.Update(race);
+            return Save();
         }
     }
 }

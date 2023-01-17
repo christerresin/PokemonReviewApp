@@ -39,7 +39,7 @@ namespace RunGroupWebApp.Repositories
 
         public async Task<Club> GetClubById(int id)
         {
-            return await _context.Clubs.FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.Clubs.Include(a => a.Address).FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public bool Save()
@@ -50,7 +50,8 @@ namespace RunGroupWebApp.Repositories
 
         public bool Update(Club club)
         {
-            throw new NotImplementedException();
+            _context.Update(club);
+            return Save(); 
         }
     }
 }
