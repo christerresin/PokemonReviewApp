@@ -42,6 +42,12 @@ namespace RunGroupWebApp.Repositories
             return await _context.Clubs.Include(a => a.Address).FirstOrDefaultAsync(c => c.Id == id);
         }
 
+        public async Task<Club> GetClubByIdNoTracking(int id)
+        {
+            return await _context.Clubs.Include(a => a.Address).AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+
         public bool Save()
         {
             var saved = _context.SaveChanges();

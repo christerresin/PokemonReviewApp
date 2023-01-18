@@ -28,6 +28,7 @@
             </div>
             <div class="card-footer card-footer-borderless d-flex justify-content-between">
                 <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="detail" asp-route-id="@race.Id">Details</a>
+                <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="edit" asp-route-id="@race.Id">Edit</a>
 
                 @*@if (isAuthenticated && User.IsInRole("admin"))
             {
