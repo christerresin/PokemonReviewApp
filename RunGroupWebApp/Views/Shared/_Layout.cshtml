@@ -28,6 +28,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="club" asp-action="Index">Club</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="dropdown-item" asp-area="" asp-controller="dashboard" asp-action="Index">
+                               <span class="h6 mb-0">Dashboard</span>
+                            </a>
+                            <a class="dropdown-item" asp-area="" asp-controller="account" asp-action="logout">
+                               <span class="h6 mb-0">Logout</span>
+                             </a>
+                        } 
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="register">Register</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

@@ -31,8 +31,11 @@
                     <div>
                         <small>@club.ClubCategory</small>
                     </div>
-                    <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="detail" asp-route-id="@club.Id">Details</a>
-                    <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="edit" asp-route-id="@club.Id">Edit</a>
+                        <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="detail" asp-route-id="@club.Id">Details</a>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="edit" asp-route-id="@club.Id">Edit</a>
+                    }
                     @*@if (isAuthenticated && User.IsInRole("admin"))
                     {
                         <div>
