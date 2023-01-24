@@ -50,3 +50,7 @@
     </div>
     <!--end of container-->
 </section>
+@if(User.Identity.IsAuthenticated && User.Identity.Name == Model.Id){
+    <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="user" asp-action="edit" asp-route-id="model.Id">Edit</a>
+    <span></span>
+}

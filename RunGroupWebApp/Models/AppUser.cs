@@ -10,8 +10,11 @@ namespace RunGroupWebApp.Models
         public int? Mileage { get; set; }
         [ForeignKey("Address")]
         public int? AddressId { get; set; }
+        public string? City { get; set; } = string.Empty;
+        public string? State { get; set; } = string.Empty;
         public Address? Address { get; set; }
-        //public List<Club>? Clubs { get; set; }
-        //public List<Club>? Races { get; set; }
+        //public ICollection<Club>? Clubs { get; set; }
+        //public ICollection<Club>? Races { get; set; }
+        public string? ProfileImageUrl { get; set; } = string.Empty;
     }
 }

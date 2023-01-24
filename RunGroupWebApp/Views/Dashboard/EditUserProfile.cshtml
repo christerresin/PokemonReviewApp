@@ -1,0 +1,114 @@
+﻿@using RunGroupWebApp.ViewModels;
+@model EditUserDashboardViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section class="flush-with-above height-80 d-block">
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="profile" role="tabpanel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="media flex-wrap mb-0 align-items-center">
+                            @{
+                                var imageUrl = string.IsNullOrEmpty(Model.ProfileImageUrl)
+                                ? "/img/avatar-male-3.jpg"
+                                : Model.ProfileImageUrl;
+                            }
+                            <img alt="Image" src="@imageUrl" class="avatar avatar-lg mb-3 mb-md-0" />
+                            <div class="media-body">
+                                <form method="post" asp-action="EditUserProfileImage" enctype="multipart/form-data">
+                                    <label asp-for="Image" class="custom-file mb-2" for="file2">
+                                        <input asp-for="Image" type="file" id="file2" class="custom-file-input height-0" />
+                                        @*<span class="btn btn-primary"><i class="icon-upload-to-cloud">&nbsp;</i>Upload</span>*@
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                        <button class="btn btn-primary" type="submit">Save changes</button>
+                                    </label>
+                                    <div>
+                                        <small>For best results, use an image at least 256px by 256px in either .jpg or .png format</small>
+                                    </div>
+
+                                    <input asp-for="Id" id="Id" name="Id" hidden/>
+                                    <input asp-for="City" hidden />
+                                    <input asp-for="State" hidden />
+                                    <input asp-for="Pace" hidden />
+                                    <input asp-for="Mileage" hidden />
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of col-->
+                </div>
+                <!--end of row-->
+                <hr />
+                <div class="row mb-4">
+                    <div class="col">
+                        <h5>Profile Information</h5>
+                    </div>
+                    <!--end of col-->
+                </div>
+                <!--end of row-->
+                <div class="row">
+                    <!--end of col-->
+                    <div class="col-12 col-md-8 order-md-1">
+                        <form asp-action="EditUserProfile" method="post" class="row">
+                            <input asp-for="Id" id="Id" name="Id" hidden />
+                            <input asp-for="ProfileImageUrl" id="ProfileImageUrl" name="ProfileImageUrl" hidden />
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="City">City:</label>
+                                    <input asp-for="City" type="text" class="form-control form-control-lg" />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="State">State:</label>
+                                    <input asp-for="State" type="text" class="form-control form-control-lg" />
+                                    <span asp-validation-for="State" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="Pace">Pace:</label>
+                                    <input asp-for="Pace" type="text" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Pace" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="Mileage">Mileage:</label>
+                                    <input asp-for="Mileage" type="text" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Mileage" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="about-me">About me:</label>
+                                    <textarea class="form-control form-control-lg"
+                                              name="profileBio"
+                                              rows="4"
+                                              id="about-me"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--end of col-->
+                </div>
+                <!--end of row-->
+            </div>
+            <!--end of container-->
+        </div>
+    </div>
+    <!--end of tabs content-->
+</section>
