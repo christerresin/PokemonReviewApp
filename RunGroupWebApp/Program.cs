@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using RunGroupWebApp.Controllers;
 using RunGroupWebApp.Data;
 using RunGroupWebApp.Helpers;
 using RunGroupWebApp.Interfaces;
@@ -17,6 +18,7 @@ builder.Services.AddScoped<IRaceRepository, RaceRepository>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.Configure<IpInfoSettings>(builder.Configuration.GetSection("IpInfoSettings"));
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
