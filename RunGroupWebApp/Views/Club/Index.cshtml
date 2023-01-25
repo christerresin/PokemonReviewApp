@@ -35,6 +35,7 @@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                     {
                         <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="edit" asp-route-id="@club.Id">Edit</a>
+                        <a class="btn btn-sm btn-outline-info" type="button" asp-asp-controller="club" asp-action="delete" asp-route-id="@club.Id">Delete</a>
                     }
                     @*@if (isAuthenticated && User.IsInRole("admin"))
                     {
